@@ -3,22 +3,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ------------------------------------------------------
-    // CONFIGURAZIONE: INSERISCI QUI IL TUO ID PLAYLIST
+    // CONFIGURAZIONE:
     // ------------------------------------------------------
     const PLAYLIST_ID = "7Eo69Vk7vDMnLKB7PzPyjK"; 
-    //https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=0daea0155bf846a3
+    // https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=09c0c2f88a304981
     // ------------------------------------------------------
 
     const params = new URLSearchParams(window.location.search);
     const trackId = params.get('id');
     const container = document.getElementById('embed-container');
     
-    // Prendiamo i riferimenti ai bottoni
     const btnApp = document.getElementById('btn-app');
     const btnWeb = document.getElementById('btn-web');
 
     if (trackId) {
-        // 1. GENERIAMO IL PLAYER (Compact o Large a tua scelta)
+        // 1. GENERIAMO IL PLAYER (Grande)
         const iframeHtml = `
             <iframe 
                 style="border-radius:12px" 
@@ -35,14 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = iframeHtml;
         container.classList.remove('loading');
 
-        // 2. GENERIAMO I LINK DINAMICI ("Deep Linking")
+        // 2. LOGICA DEI BOTTONI
         
-        // LINK APP: "Apri Traccia X nel contesto della Playlist Y"
-        // Sintassi: spotify:track:{ID_TRACCIA}?context=spotify:playlist:{ID_PLAYLIST}
+        // A) APP (Mobile): Apre la Canzone SPECIFICA dentro la Playlist
+        // Questo comando è perfetto per il telefono.
+        // Nota: Su PC a volte sbaglia mira, ma su mobile è infallibile.
         const appLink = `spotify:track:${trackId}?context=spotify:playlist:${PLAYLIST_ID}`;
         
-        // LINK WEB: Versione HTTPS dello stesso concetto
-        const webLink = `https://open.spotify.com/track/${trackId}?context=spotify:playlist:${PLAYLIST_ID}`;
+        // B) WEB (Browser): Apre la PLAYLIST GENERALE (come volevi tu)
+        // Torniamo al link classico pulito.
+        const webLink = `https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=09c0c2f88a304981`;
 
         // 3. AGGIORNIAMO I BOTTONI
         if (btnApp) btnApp.href = appLink;
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
     } else {
         container.innerHTML = "<p>Errore: Nessuna canzone specificata.</p>";
-        // Nascondiamo i bottoni se non c'è la canzone
         if (btnApp) btnApp.style.display = 'none';
         if (btnWeb) btnWeb.style.display = 'none';
     }
