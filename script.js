@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     
     const params = new URLSearchParams(window.location.search);
@@ -13,10 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0" 
                 width="100%" 
                 
-                /* --- ECCO LA MODIFICA FONDAMENTALE --- */
-                height="152" 
-                /* ------------------------------------- */
-
+                /* TORNATO AL GRANDE */
+                height="352" 
+                
                 frameBorder="0" 
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
