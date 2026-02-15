@@ -1,81 +1,37 @@
 <!DOCTYPE html>
 <html lang="it">
+<!--"https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laurea Engineering - Soundtrack</title>
-    <style>
-        body {
-            background-color: #121212; /* Spotify Black */
-            color: white;
-            font-family: 'Courier New', monospace; /* Stile Codice */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        h1 { color: #1DB954; /* Spotify Green */ margin-bottom: 10px; }
-        p { margin-bottom: 30px; font-size: 0.9em; opacity: 0.8; }
-        
-        /* Contenitore del Player */
-        #embed-container {
-            width: 90%;
-            max-width: 400px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .btn {
-            margin-top: 30px;
-            padding: 12px 24px;
-            background: #1DB954;
-            color: black;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.8em;
-            letter-spacing: 1px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <h1>while(sogni) AdMaiora++;</h1>
-    <p>Il destino ha scelto questa traccia per te:</p>
+    <div class="main-container">
+        <h1>while(sogni) AdMaiora++;</h1>
+        <p class="subtitle">Il destino ha compilato questa traccia per te:</p>
 
-    <div id="embed-container"></div>
+        <div id="embed-container" class="loading">
+            <div class="loader"></div>
+        </div>
 
-    <br>
+        <br>
 
-    <a href="https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=60d077216a0548eb" class="btn">
-        Apri Playlist Completa
-    </a>
+        <div class="button-group">
+            <a href="spotify:playlist:37i9dQZF1DXcBWIGoYBM5M" class="btn btn-primary">
+                Apri in App Spotify
+            </a>
 
-    <script>
-        // 1. Legge il parametro 'id' dall'URL (es: tuosito.com?id=12345)
-        const params = new URLSearchParams(window.location.search);
-        const trackId = params.get('id');
-
-        // 2. Se c'è un ID, crea l'iframe di Spotify per quella canzone
-        if (trackId) {
-            const container = document.getElementById('embed-container');
-            // Usiamo l'embed di Spotify che funziona ovunque (anche senza app)
-            container.innerHTML = `
-                <iframe style="border-radius:12px" 
-                src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0" 
-                width="100%" height="352" frameBorder="0" 
-                allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-                </iframe>
-            `;
-        } else {
-            document.getElementById('embed-container').innerHTML = "<p>Errore: Nessuna canzone specificata.</p>";
-        }
-    </script>
+            <a href="https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M" class="btn btn-secondary">
+                Apri via Web
+            </a>
+        </div>
+    </div>
 
 </body>
 </html>
