@@ -1,0 +1,132 @@
+/* =========================================
+   1. GLOBAL STYLES & RESET
+   ========================================= */
+body {
+    background-color: #121212; /* Spotify Dark Background */
+    color: white;
+    font-family: 'Courier New', Courier, monospace; /* Stile "Codice" */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* =========================================
+   2. MAIN LAYOUT
+   ========================================= */
+.main-container {
+    width: 90%;
+    max-width: 450px; /* Larghezza ottimale per mobile */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #1DB954; /* Spotify Green */
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    color: #b3b3b3; /* Grigio chiaro Spotify */
+    line-height: 1.5;
+}
+
+/* =========================================
+   3. PLAYER CONTAINER
+   ========================================= */
+#embed-container {
+    width: 100%;
+    /* Altezza minima per il player Compact (152px) */
+    min-height: 152px; 
+    border-radius: 12px;
+    overflow: hidden;
+    /* Ombra elegante per staccarlo dallo sfondo */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    background: #282828; /* Colore di placeholder mentre carica */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Classe utilitaria per nascondere il loader quando il player è pronto */
+#embed-container iframe {
+    display: block; /* Rimuove spazi bianchi fantasma */
+}
+
+/* =========================================
+   4. BUTTONS (Call to Action)
+   ========================================= */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spazio tra i bottoni */
+    width: 100%;
+    margin-top: 30px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    text-decoration: none;
+    border-radius: 50px; /* Pill shape */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+}
+
+/* Effetto "premuto" su mobile */
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* Stile Bottone Primario (Verde Pieno) */
+.btn-primary {
+    background-color: #1DB954;
+    color: black;
+    border: 2px solid #1DB954;
+}
+
+/* Stile Bottone Secondario (Outline) */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #1DB954;
+    color: #1DB954;
+}
+
+/* =========================================
+   5. LOADING SPINNER
+   ========================================= */
+/* Appare solo mentre il JS carica l'iframe */
+.loader {
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top: 3px solid #1DB954;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Classe per gestire lo stato di caricamento */
+.loading {
+    min-height: 152px;
+}
