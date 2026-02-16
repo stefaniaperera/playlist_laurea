@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const appLink = `spotify:track:${trackId}?context=spotify:playlist:${PLAYLIST_ID}`;
         
-        const webLink = `https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK`;
+        const webLink = `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}`;
         
 
         if (btnApp) {
@@ -61,11 +61,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (btnWeb) {
+
+            btnWeb.removeAttribute('target'); 
             btnWeb.href = webLink;
             
             btnWeb.addEventListener('click', (e) => {
-                e.preventDefault(); // Blocca il click normale
-                window.open(webLink, '_blank'); // Forza nuova scheda via JS
+                e.preventDefault();
+                // Usiamo location.assign che naviga nella stessa finestra.
+                // Essendo un link "/embed/", l'app non dovrebbe intercettarlo.
+                window.location.assign(webLink); 
             });
         }
         
