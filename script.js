@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (btnWeb) {
             btnWeb.href = webLink;
+            btnWeb.target = "_blank";
         }
         
     } else {
