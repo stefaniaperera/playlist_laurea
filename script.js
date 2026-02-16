@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         const wantsToDownload = confirm(
                             "Sembra che tu non abbia l'app di Spotify installata.\n\n" +
-                            "Clicca ok per scaricarla e scoprire la playlist completa!\n\n" +
+                            "Clicca OK per scaricarla e scoprire la playlist completa!\n\n" +
                             "(Altrimenti premi 'Annulla' per rimanere qui e usare il tasto 'Apri via Web')"
                         );
 
