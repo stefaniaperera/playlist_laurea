@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         const wantsToDownload = confirm(
                             "Sembra che tu non abbia l'app di Spotify installata.\n\n" +
-                            "Vuoi andare allo store per scaricarla?\n" +
-                            "(Premi 'Annulla' per rimanere qui e usare il tasto 'Apri via Web')"
+                            "Clicca ok per scaricarla e scoprire la playlist completa!\n\n" +
+                            "(Altrimenti premi 'Annulla' per rimanere qui e usare il tasto 'Apri via Web')"
                         );
 
                         if (wantsToDownload) {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
     } else {
-        container.innerHTML = "<p style='color:white;'>Errore: Nessuna canzone specificata nel codice.</p>";
+        container.innerHTML = "<p style='color:white;'>Nessuna canzone specificata nel codice.</p>";
         if (btnApp) btnApp.style.display = 'none';
         if (btnWeb) btnWeb.style.display = 'none';
     }
