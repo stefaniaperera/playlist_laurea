@@ -62,7 +62,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (btnWeb) {
             btnWeb.href = webLink;
-            btnWeb.target = "_blank";
+            
+            btnWeb.addEventListener('click', (e) => {
+                e.preventDefault(); // Blocca il click normale
+                window.open(webLink, '_blank'); // Forza nuova scheda via JS
+            });
         }
         
     } else {
