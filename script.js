@@ -1,13 +1,6 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ------------------------------------------------------
-    // CONFIGURAZIONE:
-    // ------------------------------------------------------
-    const PLAYLIST_ID = "7Eo69Vk7vDMnLKB7PzPyjK"; 
-    // https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=09c0c2f88a304981
-    // ------------------------------------------------------
+
+    const PLAYLIST_ID = "7Eo69Vk7vDMnLKB7PzPyjK";
 
     const params = new URLSearchParams(window.location.search);
     const trackId = params.get('id');
@@ -17,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnWeb = document.getElementById('btn-web');
 
     if (trackId) {
-        // 1. GENERIAMO IL PLAYER (Grande)
+
         const iframeHtml = `
             <iframe 
                 style="border-radius:12px" 
@@ -34,23 +27,44 @@ document.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = iframeHtml;
         container.classList.remove('loading');
 
-        // 2. LOGICA DEI BOTTONI
-        
-        // A) APP (Mobile): Apre la Canzone SPECIFICA dentro la Playlist
-        // Questo comando è perfetto per il telefono.
-        // Nota: Su PC a volte sbaglia mira, ma su mobile è infallibile.
         const appLink = `spotify:track:${trackId}?context=spotify:playlist:${PLAYLIST_ID}`;
         
-        // B) WEB (Browser): Apre la PLAYLIST GENERALE (come volevi tu)
-        // Torniamo al link classico pulito.
-        const webLink = `https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=09c0c2f88a304981`;
+        const webLink = `https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=d4166e0059bd44f9`;
+        
+        if (btnApp) {
+            btnApp.href = appLink;
 
-        // 3. AGGIORNIAMO I BOTTONI
-        if (btnApp) btnApp.href = appLink;
-        if (btnWeb) btnWeb.href = webLink;
+            btnApp.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const now = Date.now();
+                
+                window.location.href = appLink;
+
+                setTimeout(() => {
+
+                    if (document.visibilityState === 'visible') {
+                        
+                        const wantsToDownload = confirm(
+                            "Sembra che tu non abbia l'app di Spotify installata.\n\n" +
+                            "Vuoi andare allo store per scaricarla?\n" +
+                            "(Premi 'Annulla' per rimanere qui e usare il tasto 'Apri via Web')"
+                        );
+
+                        if (wantsToDownload) {
+                            window.location.href = "https://www.spotify.com/download";
+                        }
+                    }
+                }, 2000);
+            });
+        }
+
+        if (btnWeb) {
+            btnWeb.href = webLink;
+        }
         
     } else {
-        container.innerHTML = "<p>Errore: Nessuna canzone specificata.</p>";
+        container.innerHTML = "<p style='color:white;'>Errore: Nessuna canzone specificata nel codice.</p>";
         if (btnApp) btnApp.style.display = 'none';
         if (btnWeb) btnWeb.style.display = 'none';
     }
