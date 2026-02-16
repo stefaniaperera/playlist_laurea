@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const appLink = `spotify:track:${trackId}?context=spotify:playlist:${PLAYLIST_ID}`;
         
-        const webLink = `https://open.spotify.com/playlist/7Eo69Vk7vDMnLKB7PzPyjK?si=d4166e0059bd44f9`;
+        const webLink = `https://open.spotify.com/embed/playlist/${PLAYLIST_ID}`;
         
         if (btnApp) {
             btnApp.href = appLink;
