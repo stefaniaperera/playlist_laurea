@@ -70,8 +70,16 @@ h1 {
     letter-spacing: 1px;
 }
 
-.btn-primary { background-color: #db5397; color: black; }
-.btn-secondary { background: transparent; border: 1px solid #db5397; color: #db5397; }
+.btn-primary { 
+    background-color: #db5397; 
+    color: black; 
+}
+.btn-secondary { 
+    background: transparent; 
+    border: 1px solid #db5397; 
+    color: #db5397; 
+    margin-bottom: 40px;
+}
 
 
 .loader {
