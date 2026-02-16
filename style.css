@@ -1,7 +1,7 @@
 body {
     background-color: #121212;
     color: white;
-    font-family: 'Courier New', monospace;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -14,50 +14,80 @@ body {
 
 .main-container {
     width: 100%;
-    max-width: 400px; /* Larghezza ottimale per il quadrato */
+    max-width: 400px;
     text-align: center;
 }
 
-h1 { color: #1DB954; margin-bottom: 5px; font-size: 1.4rem; }
-.subtitle { margin-bottom: 20px; font-size: 0.9rem; opacity: 0.8; }
+h1 { 
+    color: #db5397; 
+    margin-bottom: 5px; 
+    font-size: 1.5rem; 
+}
+
+.name-subtitle {
+    color: #f6f6f6;    
+    font-size: 1.1rem; 
+    margin-top: 10px;      
+    margin-bottom: 30px;   
+        
+}
+
+.subtitle { 
+    margin-bottom: 20px; 
+    font-size: 0.9rem; 
+    opacity: 1.6; 
+}
 
 #embed-container {
     width: 100%;
-    min-height: 352px; /* Spazio riservato per il player grande */
+    min-height: 352px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     background: #282828;
     margin-bottom: 25px;
-    display: flex; /* Centra il loader */
+    display: flex; 
     align-items: center;
     justify-content: center;
 }
 
-/* Bottoni Sotto */
-.button-group { display: flex; flex-direction: column; gap: 12px; width: 100%; }
 
-.btn {
-    display: block; padding: 14px 0; width: 100%;
-    text-decoration: none; border-radius: 50px;
-    font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;
+.button-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    width: 100%; 
 }
 
-.btn-primary { background-color: #1DB954; color: black; }
-.btn-secondary { background: transparent; border: 1px solid #1DB954; color: #1DB954; }
+.btn {
+    display: block; 
+    padding: 14px 0; 
+    width: 100%;
+    text-decoration: none; 
+    border-radius: 50px;
+    font-weight: bold; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+    letter-spacing: 1px;
+}
 
-/* Loader */
+.btn-primary { background-color: #db5397; color: black; }
+.btn-secondary { background: transparent; border: 1px solid #db5397; color: #db5397; }
+
+
 .loader {
-    border: 3px solid rgba(255,255,255,0.1); border-top: 3px solid #1DB954;
-    border-radius: 50%; width: 30px; height: 30px;
+    border: 3px solid rgba(255,255,255,0.1); 
+    border-top: 3px solid #db5397;
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px;
     animation: spin 1s linear infinite;
 }
 
 .cta-text {
-    font-size: 0.85rem;    
-    color: #b3b3b3;          
+    font-size: 0.9rem;    
+    color: #f6f6f6;          
     margin-top: 15px;        
-    margin-bottom: 10px;     
-    line-height: 1.4;        
+    margin-bottom: 10px;          
     font-weight: normal;
 }
 
