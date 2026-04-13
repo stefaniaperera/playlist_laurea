@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const PLAYLIST_ID = "7Eo69Vk7vDMnLKB7PzPyjK";
-
+    const PLAYLIST_ID = "5mQhMJlbWwcxZPXHGSJmZ0";
+    
     const params = new URLSearchParams(window.location.search);
     const trackId = params.get('id');
     const container = document.getElementById('embed-container');
@@ -67,8 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             btnWeb.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Usiamo location.assign che naviga nella stessa finestra.
-                // Essendo un link "/embed/", l'app non dovrebbe intercettarlo.
                 window.location.assign(webLink); 
             });
         }
